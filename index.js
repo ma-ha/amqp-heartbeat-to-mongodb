@@ -46,12 +46,11 @@ heartbeatCollector.storeHeartbeat = function storeHeartbeat( msg ) {
 			//log.info( 'storeHeartbeat', heartbeat.serviceName+': '+heartbeat.serviceID  )
 			// Use connect method to connect to the server
 			MongoClient.connect( this.mongoDbURL, function( err, db ) {
-				if ( ! err ) {					
-//					var x = db.createCollection( 'services' , function(err, collection) { log.info('creColl',err) } ) // not working
-//					log.info('creColl',x)
-//			    db.collections(function(err, collections) {
-//			    	for ( var i in collections) { log.info( 'COLLECTION', collections[i].s.name ) }
-//			    })
+				if ( ! err ) {
+					try {
+						db.createCollection( 'services' , function(err, collection) { log.info('createCollection',err) } ) 						
+					} catch (err) { log.error( 'createCollection', err ) }
+
 					var now = Date.now();
 					var col = db.collection( 'services' )
 					
