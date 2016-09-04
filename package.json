@@ -1,0 +1,29 @@
+{
+	"name":"amqp-heartbeat-to-mongodb",
+	"version":"0.1.0",
+	"description":" Collect all heartbeat messages and store them into MongoDB",
+	"author":"MH",
+	"main":"index.js",
+	"scripts":{
+		"start":"node index.js"
+	},
+	"dependencies":{
+		"amqplib":"^0.4.2",
+		"mongodb":"^2.2.9",
+		"minimist":"^1.2.0",
+		"npmlog":"^4.0.0",
+		"node-uuid":"^1.4.7",
+		"dateformat":"^1.0.12"
+	},
+	"keywords":[
+		"RabbiMQ",
+		"MicroServices",
+		"Service",
+		"Registry"
+	],
+	"repository":{
+		"type":"git",
+		"url":"https://github.com/ma-ha/amqp-heartbeat-to-mongodb.git"
+	},
+	"license":"MIT"
+}
