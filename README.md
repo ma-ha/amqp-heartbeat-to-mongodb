@@ -5,7 +5,7 @@ to send heartbeat messages.
 Collect all heartbeat messages and write them into the _dashboard_ DB:
 
 ```javascript
-var heartbeatCollector = require ( '.' )
+var heartbeatCollector = require ( 'amqp-heartbeat-to-mongodb' )
 heartbeatCollector.start( 'amqp://user:password@localhost', 'mongodb://localhost:27017/dashboard' )
 ```
 
