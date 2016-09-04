@@ -48,7 +48,7 @@ heartbeatCollector.storeHeartbeat = function storeHeartbeat( msg ) {
 			MongoClient.connect( this.mongoDbURL, function( err, db ) {
 				if ( ! err ) {
 					try {
-						db.createCollection( 'services' , function(err, collection) { log.info('createCollection',err) } ) 						
+						db.createCollection( 'services' , function(err, collection) { if (err) log.info('createCollection',err) } ) 						
 					} catch (err) { log.error( 'createCollection', err ) }
 
 					var now = Date.now();
