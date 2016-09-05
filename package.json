@@ -1,6 +1,6 @@
 {
 	"name":"amqp-heartbeat-to-mongodb",
-	"version":"1.0.1",
+	"version":"1.1.0",
 	"description":" Collect all heartbeat messages and store them into MongoDB",
 	"author":"MH",
 	"main":"index.js",
