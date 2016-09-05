@@ -43,7 +43,7 @@ heartbeatCollector.storeHeartbeat = function storeHeartbeat( msg ) {
 	try {
 		var heartbeat = JSON.parse( msg.content )
 		if ( heartbeat.serviceID && heartbeat.serviceName ) {
-			//log.info( 'storeHeartbeat', heartbeat.serviceName+': '+heartbeat.serviceID  )
+			//log.info( 'storeHeartbeat', heartbeat )
 			// Use connect method to connect to the server
 			MongoClient.connect( this.mongoDbURL, function( err, db ) {
 				if ( ! err ) {
@@ -56,7 +56,7 @@ heartbeatCollector.storeHeartbeat = function storeHeartbeat( msg ) {
 					
 				  col.updateOne( 
 				  		{ serviceID:heartbeat.serviceID }, 
-				  		{ $set: { heartbeatTime: heartbeat.heartbeatTime } } 
+				  		{ $set: { heartbeatTime: heartbeat.heartbeatTime, status: heartbeat.status } } 
 				  		, function(err, r) { 
 				  				if ( err ) log.error( 'storeHeartbeat', err )
 								  if ( r.matchedCount == 0 || r.modifiedCount == 0 ) { // service with this id is not in db
