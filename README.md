@@ -18,7 +18,7 @@ Get and start MongoDB Docker container:
 https://hub.docker.com/_/mongo/
 
     docker pull mongo
-    docker run --name thub-mongo -p 27017:27017 -d mongo
+    docker run --name my-mongo -p 27017:27017 -d mongo
  
 Create a database named *dashboard* and a collection *services*
  
