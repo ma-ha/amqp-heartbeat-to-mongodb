@@ -26,3 +26,6 @@ Create a database named *dashboard* and a collection *services*
 
     docker run -d --hostname my-rabbit --name some-rabbit -p 5672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=password rabbitmq:3-management
  
+## Web GUI
+
+A web UI demo is available, check out the [amq-heartbeat-gui node package](https://www.npmjs.com/package/amq-heartbeat-gui) 
