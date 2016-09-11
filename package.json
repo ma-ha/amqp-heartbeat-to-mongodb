@@ -1,11 +1,11 @@
 {
 	"name":"amqp-heartbeat-to-mongodb",
-	"version":"1.1.1",
+	"version":"1.2.0",
 	"description":" Collect all heartbeat messages and store them into MongoDB",
 	"author":"MH",
 	"main":"index.js",
 	"scripts":{
-		"start":"node index.js"
+		"start":"node docker.js"
 	},
 	"dependencies":{
 		"amqplib":"^0.4.2",
@@ -13,6 +13,7 @@
 		"minimist":"^1.2.0",
 		"npmlog":"^4.0.0",
 		"node-uuid":"^1.4.7",
+		"amqp-heartbeat":"^1.1.1",
 		"dateformat":"^1.0.12"
 	},
 	"keywords":[
