@@ -20,7 +20,7 @@ https://hub.docker.com/_/mongo/
     docker pull mongo
     docker run --name my-mongo -p 27017:27017 -d mongo
  
-Create a database named *dashboard* and a collection *services*
+Create a database named *dashboard* and a collection *services*.
  
 ### RabbitMQ (Docker Container)
 
