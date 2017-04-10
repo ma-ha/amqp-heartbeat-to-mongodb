@@ -4,14 +4,14 @@ var dateFormat = require( 'dateformat' )
 var MongoClient = require( 'mongodb' ).MongoClient, assert = require( 'assert' )
 
 var heartbeatCollector = exports = module.exports = {
-	rabbitMqURL : 'amqp://user:password@localhost',
-	mongoDbURL  : 'mongodb://localhost:27017/dashboard',
-	db: null
+  rabbitMqURL : 'amqp://user:password@localhost',
+  mongoDbURL  : 'mongodb://localhost:27017/dashboard',
+  db: null
 }
 
 heartbeatCollector.start = function start( amqURL, mongoDbURL  ) {
-	this.rabbitMqURL = amqURL
-	
+  this.rabbitMqURL = amqURL
+
   MongoClient.connect(mongoDbURL).then( (_db) => {
     this.db = _db;
     return this.db.createCollection( 'services');
@@ -42,10 +42,10 @@ heartbeatCollector.start = function start( amqURL, mongoDbURL  ) {
 }
 
 heartbeatCollector.storeHeartbeat = function storeHeartbeat( msg ) {
-	try {
-		var heartbeat = JSON.parse( msg.content )
-		if ( heartbeat.serviceID ) {
-			//log.info( 'storeHeartbeat', heartbeat )
+  try {
+    var heartbeat = JSON.parse( msg.content )
+    if ( heartbeat.serviceID ) {
+      //log.info( 'storeHeartbeat', heartbeat )
       var col = this.db.collection( 'services' )
       col.updateOne( 
         { serviceID:heartbeat.serviceID }, 
@@ -64,6 +64,6 @@ heartbeatCollector.storeHeartbeat = function storeHeartbeat( msg ) {
           } 
         } 
       );
-		}
-	} catch ( err ) { log.error( 'storeHeartbeat', err ); }
+    }
+  } catch ( err ) { log.error( 'storeHeartbeat', err ); }
 }
